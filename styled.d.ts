@@ -1,5 +1,4 @@
 import "styled-components";
-
 declare module "styled-components" {
   export interface DefaultTheme {
     borderRadius: {
@@ -11,18 +10,23 @@ declare module "styled-components" {
       background: {
         main: string;
         switchAndNumberPad: string;
-        displayPanel: string;
+        displayBoard: string;
       };
       button: {
         resetAndDelete: { hover: string; normal: string };
         primary: { hover: string; normal: string };
         equalAndSwitch: { hover: string; normal: string };
       };
-      buttonShadow: { resetDelete: string; primary: string };
+      buttonShadow: {
+        resetAndDelete: string;
+        equalAndSwitch: string;
+        primary: string;
+      };
       text: {
-        abroveDisplayBoardText: string;
+        abroveNumberPadText: string;
         resetAndDeleteButton: string;
         equalButton: string;
+        primaryButton: string;
       };
     };
   }
