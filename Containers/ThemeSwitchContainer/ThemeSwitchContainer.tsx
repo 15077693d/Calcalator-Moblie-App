@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useSwitchThemeContext } from "../../Contexts/SwitchThemeContext";
 import { ThemeId } from "../../Styles/Theme";
 import {
   ButtonContainer,
@@ -9,14 +10,8 @@ import {
   Title,
 } from "./ThemeSwitchContainer.elements";
 
-type ThemeSwitchContainer = {
-  activeThemeId: ThemeId;
-  handlePress: (activethemeId: ThemeId) => void;
-};
-export default function ThemeSwitchContainer({
-  handlePress: baseHandlePress,
-  activeThemeId,
-}: ThemeSwitchContainer) {
+export default function ThemeSwitchContainer() {
+  const { themeId, setThemeId } = useSwitchThemeContext();
   // return 1,2,3
   const themeIndex = useRef(0);
   const handlePress = () => {
@@ -25,7 +20,7 @@ export default function ThemeSwitchContainer({
     } else {
       themeIndex.current += 1;
     }
-    void baseHandlePress(Object.values(ThemeId)[themeIndex.current]);
+    void setThemeId(Object.values(ThemeId)[themeIndex.current]);
   };
   return (
     <Container>
@@ -38,7 +33,7 @@ export default function ThemeSwitchContainer({
         <MoveableSwitchButton
           handlePress={handlePress}
           label={""}
-          activeThemeId={activeThemeId}
+          activeThemeId={themeId}
         />
       </ButtonContainer>
       <Title>THEME</Title>

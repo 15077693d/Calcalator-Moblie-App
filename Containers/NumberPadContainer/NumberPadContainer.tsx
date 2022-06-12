@@ -27,11 +27,11 @@ export default function NumberPadContainer() {
           buttonType={NumberPadButtonType.Primary}
         />
         <NumberPadButton
-          label={"DEL"}
+          label={"9"}
           handlePress={function (option: number): void {
-            console.log("this is delete");
+            console.log("this is 9");
           }}
-          buttonType={NumberPadButtonType.Delete}
+          buttonType={NumberPadButtonType.Primary}
         />
         <NumberPadButton
           label={"DEL"}
@@ -41,88 +41,88 @@ export default function NumberPadContainer() {
           buttonType={NumberPadButtonType.Delete}
         />
         <NumberPadButton
-          label={"DEL"}
+          label={"4"}
           handlePress={function (option: number): void {
-            console.log("this is delete");
+            console.log("this is 4");
           }}
-          buttonType={NumberPadButtonType.Delete}
+          buttonType={NumberPadButtonType.Primary}
         />
         <NumberPadButton
-          label={"DEL"}
+          label={"5"}
           handlePress={function (option: number): void {
-            console.log("this is delete");
+            console.log("this is 5");
           }}
-          buttonType={NumberPadButtonType.Delete}
+          buttonType={NumberPadButtonType.Primary}
         />
         <NumberPadButton
-          label={"DEL"}
+          label={"6"}
           handlePress={function (option: number): void {
-            console.log("this is delete");
+            console.log("this is 6");
           }}
-          buttonType={NumberPadButtonType.Delete}
+          buttonType={NumberPadButtonType.Primary}
         />
         <NumberPadButton
-          label={"DEL"}
+          label={"+"}
           handlePress={function (option: number): void {
-            console.log("this is delete");
+            console.log("this is +");
           }}
-          buttonType={NumberPadButtonType.Delete}
+          buttonType={NumberPadButtonType.Primary}
         />
         <NumberPadButton
-          label={"DEL"}
+          label={"1"}
           handlePress={function (option: number): void {
-            console.log("this is delete");
+            console.log("this is 1");
           }}
-          buttonType={NumberPadButtonType.Delete}
+          buttonType={NumberPadButtonType.Primary}
         />
         <NumberPadButton
-          label={"DEL"}
+          label={"2"}
           handlePress={function (option: number): void {
-            console.log("this is delete");
+            console.log("this is 2");
           }}
-          buttonType={NumberPadButtonType.Delete}
+          buttonType={NumberPadButtonType.Primary}
         />
         <NumberPadButton
-          label={"DEL"}
+          label={"3"}
           handlePress={function (option: number): void {
-            console.log("this is delete");
+            console.log("this is 3");
           }}
-          buttonType={NumberPadButtonType.Delete}
+          buttonType={NumberPadButtonType.Primary}
         />
         <NumberPadButton
-          label={"DEL"}
+          label={"-"}
           handlePress={function (option: number): void {
-            console.log("this is delete");
+            console.log("this is -");
           }}
-          buttonType={NumberPadButtonType.Delete}
+          buttonType={NumberPadButtonType.Primary}
         />
         <NumberPadButton
-          label={"DEL"}
+          label={"."}
           handlePress={function (option: number): void {
-            console.log("this is delete");
+            console.log("this is .");
           }}
-          buttonType={NumberPadButtonType.Delete}
+          buttonType={NumberPadButtonType.Primary}
         />
         <NumberPadButton
-          label={"DEL"}
+          label={"0"}
           handlePress={function (option: number): void {
-            console.log("this is delete");
+            console.log("this is 0");
           }}
-          buttonType={NumberPadButtonType.Delete}
+          buttonType={NumberPadButtonType.Primary}
         />
         <NumberPadButton
-          label={"DEL"}
+          label={"/"}
           handlePress={function (option: number): void {
-            console.log("this is delete");
+            console.log("this is /");
           }}
-          buttonType={NumberPadButtonType.Delete}
+          buttonType={NumberPadButtonType.Primary}
         />
         <NumberPadButton
-          label={"DEL"}
+          label={"x"}
           handlePress={function (option: number): void {
-            console.log("this is delete");
+            console.log("this is x");
           }}
-          buttonType={NumberPadButtonType.Delete}
+          buttonType={NumberPadButtonType.Primary}
         />
         <ResetButton
           label={"RESET"}
@@ -134,7 +134,7 @@ export default function NumberPadContainer() {
         <EqualButton
           label={"="}
           handlePress={function (option: number): void {
-            console.log("this is reset");
+            console.log("this is equal");
           }}
           buttonType={NumberPadButtonType.Equal}
         />

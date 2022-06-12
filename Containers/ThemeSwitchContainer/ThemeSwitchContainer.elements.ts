@@ -42,7 +42,7 @@ export const MoveableSwitchButton = styled(
 `;
 
 export const LabelWrapper = styled.View`
-  width: 71;
+  width: 71px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

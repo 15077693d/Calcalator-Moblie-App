@@ -1,7 +1,7 @@
 // General
 export type ButtonProps<T> = {
   label: string;
-  handlePress: (option?: T) => void;
+  handlePress: (option: T) => void;
 };
 
 // NumberPadButton
