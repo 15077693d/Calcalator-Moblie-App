@@ -13,9 +13,9 @@ const font = {
     primary: "32px LeagueSpartan-Bold",
     resetAndDeleteAndEqual: "20px LeagueSpartan-Bold",
   },
-  displayBoard: "40px 'LeagueSpartan-Bold', sans-serif",
-  themeSwitch: "12px 'LeagueSpartan-Bold', sans-serif",
-  logo: "32px 'LeagueSpartan-Bold', sans-serif",
+  displayBoard: "40px LeagueSpartan-Bold",
+  themeSwitch: "12px LeagueSpartan-Bold",
+  logo: "32px LeagueSpartan-Bold",
 };
 
 export enum ThemeId {
@@ -103,7 +103,7 @@ const Theme3: DefaultTheme = {
       primary: "#881C9E",
     },
     text: {
-      abroveNumberPadText: "#FFE53",
+      abroveNumberPadText: "#FFE53D",
       resetAndDeleteButton: "#FFFFFF",
       equalButton: "#1A2327",
       primaryButton: "#FFE53D",
