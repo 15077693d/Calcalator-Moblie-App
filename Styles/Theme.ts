@@ -5,7 +5,9 @@ const borderRadius = {
   medium: "10px",
   small: "5px",
 };
+
 const fontFamily = "'LeagueSpartan-Bold', sans-serif";
+
 const font = {
   button: {
     primary: "32px LeagueSpartan-Bold",
@@ -15,7 +17,14 @@ const font = {
   themeSwitch: "12px 'LeagueSpartan-Bold', sans-serif",
   logo: "32px 'LeagueSpartan-Bold', sans-serif",
 };
-export const Theme1: DefaultTheme = {
+
+export enum ThemeId {
+  Theme1 = "Theme1",
+  Theme2 = "Theme2",
+  Theme3 = "Theme3",
+}
+
+const Theme1: DefaultTheme = {
   font,
   fontFamily,
   borderRadius,
@@ -44,7 +53,7 @@ export const Theme1: DefaultTheme = {
   },
 };
 
-export const Theme2: DefaultTheme = {
+const Theme2: DefaultTheme = {
   font,
   fontFamily,
   borderRadius,
@@ -73,7 +82,7 @@ export const Theme2: DefaultTheme = {
   },
 };
 
-export const Theme3: DefaultTheme = {
+const Theme3: DefaultTheme = {
   font,
   fontFamily,
   borderRadius,
@@ -100,4 +109,10 @@ export const Theme3: DefaultTheme = {
       primaryButton: "#FFE53D",
     },
   },
+};
+
+export const THEMES = {
+  [ThemeId.Theme1]: Theme1,
+  [ThemeId.Theme2]: Theme2,
+  [ThemeId.Theme3]: Theme3,
 };

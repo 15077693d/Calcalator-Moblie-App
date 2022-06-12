@@ -5,14 +5,13 @@ export enum NumberPadButtonType {
   Primary = "Primary",
 }
 
-export type ButtonProps = {
+export type ButtonProps<T> = {
   label: string;
-  handlePress?: () => void;
+  handlePress: (option: T) => void;
 };
 
-export type NumberPadButtonProps = ButtonProps & {
+export type NumberPadButtonProps<T> = ButtonProps<T> & {
   buttonType: NumberPadButtonType;
-  handlePress?: () => void;
 };
 
 export type BaseNumberPadButtonProps = {

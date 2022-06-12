@@ -10,13 +10,15 @@ export function NumberPadButton({
   buttonType,
   label,
   handlePress,
-}: NumberPadButtonProps) {
+}: NumberPadButtonProps<number>) {
   const [active, setActive] = useState(false);
   return (
     <BaseNumberPadButtonWrapper buttonType={buttonType}>
       <BaseNumberPadButton
-        onPress={handlePress}
-        onPressIn={() => setActive(true)}
+        onPress={() => handlePress(1)}
+        onPressIn={() => {
+          setActive(true);
+        }}
         onPressOut={() => setActive(false)}
         buttonType={buttonType}
         active={active}
