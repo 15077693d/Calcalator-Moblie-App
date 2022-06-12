@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 import { NumberPadButtonProps } from "../../../Interfaces/Button";
-import {
-  BaseNumberPadButton,
-  BaseNumberPadButtonWrapper,
-  BaseNumberPadLabel,
-} from "./NumberPadButtons.elements";
+import { Button, Label, Wrapper } from "./NumberPadButtons.elements";
 
 export function NumberPadButton({
   buttonType,
   label,
   handlePress,
+  ...args
 }: NumberPadButtonProps<number>) {
   const [active, setActive] = useState(false);
   return (
-    <BaseNumberPadButtonWrapper buttonType={buttonType}>
-      <BaseNumberPadButton
+    <Wrapper {...args} buttonType={buttonType}>
+      <Button
         onPress={() => handlePress(1)}
         onPressIn={() => {
           setActive(true);
@@ -24,8 +21,8 @@ export function NumberPadButton({
         active={active}
         activeOpacity={1}
       >
-        <BaseNumberPadLabel buttonType={buttonType}>{label}</BaseNumberPadLabel>
-      </BaseNumberPadButton>
-    </BaseNumberPadButtonWrapper>
+        <Label buttonType={buttonType}>{label}</Label>
+      </Button>
+    </Wrapper>
   );
 }

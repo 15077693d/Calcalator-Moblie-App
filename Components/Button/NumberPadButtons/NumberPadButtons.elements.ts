@@ -4,13 +4,13 @@ import {
   NumberPadButtonType,
 } from "../../../Interfaces/Button";
 
-export const BaseNumberPadButtonWrapper = styled.View<BaseNumberPadButtonProps>`
+export const Wrapper = styled.View<BaseNumberPadButtonProps>`
   ${({ theme: { color, borderRadius }, buttonType }) => {
     // width
     const selectedWidth =
       buttonType === NumberPadButtonType.Reset ||
       buttonType === NumberPadButtonType.Equal
-        ? "113px"
+        ? "135px"
         : "60px";
     // background color
     let selectedBackgroundColor = color.buttonShadow.primary;
@@ -31,7 +31,7 @@ export const BaseNumberPadButtonWrapper = styled.View<BaseNumberPadButtonProps>`
   }}
 `;
 
-export const BaseNumberPadLabel = styled.Text<BaseNumberPadButtonProps>`
+export const Label = styled.Text<BaseNumberPadButtonProps>`
   ${({ theme: { font, color }, buttonType }) => {
     // text color
     let selectedColor = color.text.primaryButton;
@@ -59,13 +59,13 @@ export const BaseNumberPadLabel = styled.Text<BaseNumberPadButtonProps>`
   }}
 `;
 
-export const BaseNumberPadButton = styled.TouchableOpacity<BaseNumberPadButtonProps>`
+export const Button = styled.TouchableOpacity<BaseNumberPadButtonProps>`
   ${({ theme: { color, borderRadius }, buttonType, active = false }) => {
     // width
     const selectedWidth =
       buttonType === NumberPadButtonType.Reset ||
       buttonType === NumberPadButtonType.Equal
-        ? "113px"
+        ? "135px"
         : "60px";
     // background color
     let selectedBackgroundColor = active
