@@ -5,8 +5,19 @@ const borderRadius = {
   medium: "10px",
   small: "5px",
 };
-
+const fontFamily = "'LeagueSpartan-Bold', sans-serif";
+const font = {
+  button: {
+    primary: "32px LeagueSpartan-Bold",
+    resetAndDeleteAndEqual: "20px LeagueSpartan-Bold",
+  },
+  displayBoard: "40px 'LeagueSpartan-Bold', sans-serif",
+  themeSwitch: "12px 'LeagueSpartan-Bold', sans-serif",
+  logo: "32px 'LeagueSpartan-Bold', sans-serif",
+};
 export const Theme1: DefaultTheme = {
+  font,
+  fontFamily,
   borderRadius,
   color: {
     background: {
@@ -15,9 +26,9 @@ export const Theme1: DefaultTheme = {
       displayBoard: "#181F33",
     },
     button: {
-      resetAndDelete: { hover: "#A2B2E1", normal: "#647198" },
-      primary: { hover: "#FFFFFE", normal: "#EAE3DC" },
-      equalAndSwitch: { hover: "#F96B5B", normal: "#D03F2F" },
+      resetAndDelete: { active: "#A2B2E1", normal: "#647198" },
+      primary: { active: "#FFFFFE", normal: "#EAE3DC" },
+      equalAndSwitch: { active: "#F96B5B", normal: "#D03F2F" },
     },
     buttonShadow: {
       resetAndDelete: "#414E73",
@@ -34,6 +45,8 @@ export const Theme1: DefaultTheme = {
 };
 
 export const Theme2: DefaultTheme = {
+  font,
+  fontFamily,
   borderRadius,
   color: {
     background: {
@@ -42,9 +55,9 @@ export const Theme2: DefaultTheme = {
       displayBoard: "#EEEEEE",
     },
     button: {
-      resetAndDelete: { hover: "#62B5BC", normal: "#378187" },
-      primary: { hover: "#FFFFFF", normal: "#E5E4E1" },
-      equalAndSwitch: { hover: "#FF8A38", normal: "#C85402" },
+      resetAndDelete: { active: "#62B5BC", normal: "#378187" },
+      primary: { active: "#FFFFFF", normal: "#E5E4E1" },
+      equalAndSwitch: { active: "#FF8A38", normal: "#C85402" },
     },
     buttonShadow: {
       resetAndDelete: "#1B6066",
@@ -61,6 +74,8 @@ export const Theme2: DefaultTheme = {
 };
 
 export const Theme3: DefaultTheme = {
+  font,
+  fontFamily,
   borderRadius,
   color: {
     background: {
@@ -69,9 +84,9 @@ export const Theme3: DefaultTheme = {
       displayBoard: "#1E0936",
     },
     button: {
-      resetAndDelete: { hover: "#8631AF", normal: "#56077C" },
-      primary: { hover: "#6C34AC", normal: "#331C4D" },
-      equalAndSwitch: { hover: "#93FFF8", normal: "#00DED0" },
+      resetAndDelete: { active: "#8631AF", normal: "#56077C" },
+      primary: { active: "#6C34AC", normal: "#331C4D" },
+      equalAndSwitch: { active: "#93FFF8", normal: "#00DED0" },
     },
     buttonShadow: {
       resetAndDelete: "#BE15F4",

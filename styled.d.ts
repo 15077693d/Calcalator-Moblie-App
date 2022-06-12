@@ -1,6 +1,16 @@
 import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
+    font: {
+      button: {
+        primary: string;
+        resetAndDeleteAndEqual: string;
+      };
+      displayBoard: string;
+      themeSwitch: string;
+      logo: string;
+    };
+    fontFamily: string;
     borderRadius: {
       large: string;
       medium: string;
@@ -13,9 +23,9 @@ declare module "styled-components" {
         displayBoard: string;
       };
       button: {
-        resetAndDelete: { hover: string; normal: string };
-        primary: { hover: string; normal: string };
-        equalAndSwitch: { hover: string; normal: string };
+        resetAndDelete: { active: string; normal: string };
+        primary: { active: string; normal: string };
+        equalAndSwitch: { active: string; normal: string };
       };
       buttonShadow: {
         resetAndDelete: string;
