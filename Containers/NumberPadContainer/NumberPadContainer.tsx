@@ -19,6 +19,7 @@ export default function NumberPadContainer() {
           if (buttonId === NumberPadButtonId.Reset) {
             return (
               <ResetButton
+                key={`NumberPadButton_${buttonId}`}
                 buttonId={buttonId}
                 label={NUMBER_PAD_BUTTONS[buttonId].label}
                 buttonType={NUMBER_PAD_BUTTONS[buttonId].buttonType}
@@ -26,6 +27,7 @@ export default function NumberPadContainer() {
             );
           } else if (buttonId === NumberPadButtonId.Equal) {
             <EqualButton
+              key={`NumberPadButton_${buttonId}`}
               buttonId={buttonId}
               label={NUMBER_PAD_BUTTONS[buttonId].label}
               buttonType={NUMBER_PAD_BUTTONS[buttonId].buttonType}
@@ -33,6 +35,7 @@ export default function NumberPadContainer() {
           }
           return (
             <NumberPadButton
+              key={`NumberPadButton_${buttonId}`}
               buttonId={buttonId}
               label={NUMBER_PAD_BUTTONS[buttonId].label}
               buttonType={NUMBER_PAD_BUTTONS[buttonId].buttonType}
