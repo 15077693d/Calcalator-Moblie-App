@@ -5,14 +5,12 @@ import { Button, Label, Wrapper } from "./NumberPadButtons.elements";
 export function NumberPadButton({
   buttonType,
   label,
-  handlePress,
   ...args
-}: NumberPadButtonProps<number>) {
+}: NumberPadButtonProps<void>) {
   const [active, setActive] = useState(false);
   return (
     <Wrapper {...args} buttonType={buttonType}>
       <Button
-        onPress={() => handlePress(1)}
         onPressIn={() => {
           setActive(true);
         }}

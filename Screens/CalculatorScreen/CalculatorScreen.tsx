@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components/native";
 import DisplayBoardContainer from "../../Containers/DisplayBoardContainer/DisplayBoardContainer";
 import NumberPadContainer from "../../Containers/NumberPadContainer/NumberPadContainer";
 import ThemeSwitchContainer from "../../Containers/ThemeSwitchContainer/ThemeSwitchContainer";
+import { useCalculatorContext } from "../../Contexts/CalculatorContext";
 import { useSwitchThemeContext } from "../../Contexts/SwitchThemeContext";
 import { THEMES } from "../../Styles/Theme";
 import {
@@ -14,7 +15,7 @@ import {
 
 export default function CalculatorScreen() {
   const { themeId } = useSwitchThemeContext();
-
+  const { displayValue } = useCalculatorContext();
   return (
     <ThemeProvider theme={THEMES[themeId]}>
       <Background>
@@ -23,7 +24,7 @@ export default function CalculatorScreen() {
             <Logo>calc</Logo>
             <ThemeSwitchContainer />
           </LogoAndThemeSwitchWrapper>
-          <DisplayBoardContainer label={"123,234"} />
+          <DisplayBoardContainer label={displayValue} />
           <NumberPadContainer />
         </Container>
       </Background>

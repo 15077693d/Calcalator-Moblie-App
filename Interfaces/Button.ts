@@ -1,7 +1,9 @@
+import { NumberPadButtonId } from "../Config/NumberPadButton";
+
 // General
 export type ButtonProps<T> = {
   label: string;
-  handlePress: (option: T) => void;
+  handlePress?: (option: T) => void;
 };
 
 // NumberPadButton
@@ -14,11 +16,10 @@ export enum NumberPadButtonType {
 
 export type NumberPadButtonProps<T> = ButtonProps<T> & {
   buttonType: NumberPadButtonType;
+  buttonId: NumberPadButtonId;
 };
 
 export type BaseNumberPadButtonProps = {
   buttonType: NumberPadButtonType;
   active?: boolean;
 };
-
-// SwitchButton
