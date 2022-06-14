@@ -19,7 +19,7 @@ export class NumberPadButton {
     if (this.id === NumberPadButtonId.Reset) {
       return "0";
     } else if (this.id === NumberPadButtonId.Delete) {
-      if (previousValue === "0") {
+      if (previousValue === "0" || previousValue.length === 1) {
         return "0";
       } else {
         return previousValue.slice(0, previousValue.length - 1);

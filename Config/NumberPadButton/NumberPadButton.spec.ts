@@ -20,6 +20,11 @@ describe("NumberPadButton process", () => {
      * 2. previous value != "0" etc. "22."
      * -> "22"
      */
+    it('process return "0" if previous value = "7"', () => {
+      expect(NUMBER_PAD_BUTTONS[NumberPadButtonId.Delete].process("7")).toEqual(
+        "0"
+      );
+    });
     it('process return "0" if previous value = "0"', () => {
       expect(NUMBER_PAD_BUTTONS[NumberPadButtonId.Delete].process("0")).toEqual(
         "0"

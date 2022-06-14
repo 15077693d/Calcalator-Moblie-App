@@ -9,7 +9,7 @@ export default function DisplayBoardContainer({
 }: DisplayBoardContainerProps) {
   return (
     <Container>
-      <Label>{label}</Label>
+      <Label onLayout={(e) => console.log(e)}>{label}</Label>
     </Container>
   );
 }
