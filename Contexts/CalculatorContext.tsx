@@ -137,13 +137,13 @@ export const CalculatorContextProvider = ({
           value1.current || "0"
         );
         value1.current = newValue1;
-        setDisplayValue(newValue1);
+        setDisplayValue(commify(newValue1 || "0"));
       } else {
         const newValue2 = NUMBER_PAD_BUTTONS[buttonId].process(
           value2.current || "0"
         );
         value2.current = newValue2;
-        setDisplayValue(newValue2);
+        setDisplayValue(commify(newValue2 || "0"));
       }
       if (buttonId === NumberPadButtonId.Delete) {
         operator.current = null;

@@ -87,7 +87,7 @@ describe("CalculatorContext init or click once", () => {
     });
     const { displayValue, value1, value2, answer, operator } = result.current;
     expect({ displayValue, value1, value2, answer, operator }).toEqual({
-      displayValue: null,
+      displayValue: "0",
       value1: null,
       value2: null,
       answer: null,
@@ -134,7 +134,7 @@ describe("CalculatorContext click two", () => {
     });
     const { displayValue, value1, value2, answer, operator } = result.current;
     expect({ displayValue, value1, value2, answer, operator }).toEqual({
-      displayValue: null,
+      displayValue: "0",
       value1: null,
       value2: null,
       answer: null,
@@ -435,7 +435,7 @@ describe("CalculatorContext click four", () => {
     });
     const { displayValue, value1, value2, answer, operator } = result.current;
     expect({ displayValue, value1, value2, answer, operator }).toEqual({
-      displayValue: null,
+      displayValue: "0",
       value1: null,
       value2: null,
       answer: null,
