@@ -24,7 +24,7 @@ export default function CalculatorScreen() {
             <Logo>calc</Logo>
             <ThemeSwitchContainer />
           </LogoAndThemeSwitchWrapper>
-          <DisplayBoardContainer label={displayValue} />
+          <DisplayBoardContainer label={displayValue || "0"} />
           <NumberPadContainer />
         </Container>
       </Background>

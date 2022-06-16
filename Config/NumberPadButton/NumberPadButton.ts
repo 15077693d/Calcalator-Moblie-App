@@ -15,12 +15,10 @@ export class NumberPadButton {
     this.id = id;
   }
 
-  process(previousValue: string): string {
-    if (this.id === NumberPadButtonId.Reset) {
-      return "0";
-    } else if (this.id === NumberPadButtonId.Delete) {
-      if (previousValue === "0" || previousValue.length === 1) {
-        return "0";
+  process(previousValue: string): string | null {
+    if (this.id === NumberPadButtonId.Delete) {
+      if (previousValue.length === 1) {
+        return null;
       } else {
         return previousValue.slice(0, previousValue.length - 1);
       }
@@ -46,6 +44,9 @@ export class NumberPadButton {
         NumberPadButtonId.Nine,
       ].includes(this.id)
     ) {
+      if (previousValue == "-" && this.label == "0") {
+        return "0";
+      }
       if (previousValue === "0") {
         return this.label;
       } else {

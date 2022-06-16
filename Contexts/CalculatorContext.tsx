@@ -13,13 +13,20 @@ import { ComponentProps } from "../Interfaces/Common";
 import { commify } from "../Utils/displayValue";
 
 type ContextReturnType = {
-  displayValue: string;
+  displayValue: string | null;
+  value1: string | null;
+  value2: string | null;
+  answer: string | null;
+  operator: NumberPadButtonId | null;
   handleNumberPadButtonClick: (buttonId: NumberPadButtonId) => void;
 };
 
 const initalContextReturn = {
-  value: "0",
-  displayValue: "0",
+  displayValue: null,
+  value1: null,
+  value2: null,
+  answer: null,
+  operator: null,
   handleNumberPadButtonClick: () => {
     return;
   },
@@ -34,85 +41,125 @@ export const useCalculatorContext = () => useContext(CalculatorContext);
 export const CalculatorContextProvider = ({
   children,
 }: ComponentProps): ReactElement => {
-  const answer = useRef("0");
-  const value = useRef("0");
-  const [displayValue, setDisplayValue] = useState("0");
-  const [activeOperator, setActiveOperator] =
-    useState<null | NumberPadButtonId>(null);
+  const value1 = useRef<null | string>(null);
+  const value2 = useRef<null | string>(null);
+  const answer = useRef<null | string>(null);
+  const operator = useRef<null | NumberPadButtonId>(null);
+  const [displayValue, setDisplayValue] = useState<null | string>(null);
 
-  const operateNumber = () => {
-    switch (activeOperator) {
+  const calculateAnswer = () => {
+    switch (operator.current) {
       case NumberPadButtonId.Plus:
         answer.current = (
-          Number(value.current) + Number(answer.current)
+          Number(value1.current) + Number(value2.current)
         ).toString();
         break;
       case NumberPadButtonId.Subtract:
         answer.current = (
-          Number(answer.current) - Number(value.current)
+          Number(value1.current) - Number(value2.current)
         ).toString();
         break;
       case NumberPadButtonId.Multiple:
         answer.current = (
-          Number(answer.current) * Number(value.current)
+          Number(value1.current) * Number(value2.current)
         ).toString();
         break;
       case NumberPadButtonId.Division:
         answer.current = (
-          Number(answer.current) / Number(value.current)
+          Number(value1.current) / Number(value2.current)
         ).toString();
         break;
       default:
         break;
     }
   };
+
   const handleNumberPadButtonClick = (buttonId: NumberPadButtonId) => {
-    // 1,2,3,4,5,6,7,8,9,0,.
-    const previousValue = value.current;
-    let latestValue = NUMBER_PAD_BUTTONS[buttonId].process(
-      previousValue.toString()
-    );
+    // let latestValue = NUMBER_PAD_BUTTONS[buttonId].process(
+    //   previousValue.toString()
+    // );
+    // reset
     if (buttonId === NumberPadButtonId.Reset) {
-      answer.current = "0";
-      value.current = latestValue;
-      setDisplayValue(commify(value.current));
-    } else if (buttonId === NumberPadButtonId.Equal) {
-      // 1. operate value to answer
-      operateNumber();
-      // 2. set value to 0: user enter new input
-      value.current = "0";
-      setActiveOperator(null);
-      setDisplayValue(commify(answer.current));
-    } else if (
+      value1.current = null;
+      value2.current = null;
+      answer.current = null;
+      operator.current = null;
+      setDisplayValue(null);
+    }
+    // Operator + - * /
+    else if (
       [
         NumberPadButtonId.Plus,
         NumberPadButtonId.Subtract,
         NumberPadButtonId.Multiple,
         NumberPadButtonId.Division,
+        NumberPadButtonId.Equal,
       ].includes(buttonId)
     ) {
-      // 1. operate value to answer
-      if (answer.current === "0") {
-        answer.current = value.current;
+      if (
+        value1.current !== null &&
+        value2.current !== null &&
+        operator.current !== null
+      ) {
+        calculateAnswer();
+        value2.current = null;
+        value1.current = answer.current;
+        if (buttonId != NumberPadButtonId.Equal) {
+          operator.current = buttonId;
+        } else {
+          operator.current = null;
+        }
+        setDisplayValue(commify(answer.current || "0"));
       } else {
-        operateNumber();
-      }
-      // 2. set value to 0: user enter new input
-      value.current = "0";
-      // 3. setActiveOperator
-      setActiveOperator(buttonId);
-      // activeOperator != null ->  display
-      if (activeOperator != null) {
-        setDisplayValue(commify(answer.current));
+        if (buttonId === NumberPadButtonId.Subtract) {
+          // user click - and value1 is null set -
+          if (value1.current == null) {
+            value1.current = "-";
+            setDisplayValue(commify(value1.current));
+          } else if (operator.current === null) {
+            operator.current = NumberPadButtonId.Subtract;
+            // user click - and value 1 is not null and  operator is not null
+          } else if (value2.current === null) {
+            value2.current = "-";
+          }
+        } else if (
+          value1.current != null &&
+          buttonId != NumberPadButtonId.Equal
+        ) {
+          operator.current = buttonId;
+        }
       }
     } else {
-      value.current = latestValue;
-      setDisplayValue(commify(value.current));
+      //1234567890.del
+      // operator is null -> value1
+      if (operator.current === null) {
+        const newValue1 = NUMBER_PAD_BUTTONS[buttonId].process(
+          value1.current || "0"
+        );
+        value1.current = newValue1;
+        setDisplayValue(newValue1);
+      } else {
+        const newValue2 = NUMBER_PAD_BUTTONS[buttonId].process(
+          value2.current || "0"
+        );
+        value2.current = newValue2;
+        setDisplayValue(newValue2);
+      }
+      if (buttonId === NumberPadButtonId.Delete) {
+        operator.current = null;
+      }
     }
   };
   return (
     <CalculatorContext.Provider
-      value={{ displayValue, handleNumberPadButtonClick }}
+      value={{
+        displayValue,
+        value1: value1.current,
+        value2: value2.current,
+        answer: answer.current,
+        operator: operator.current,
+        handleNumberPadButtonClick,
+      }}
     >
       {children}
     </CalculatorContext.Provider>

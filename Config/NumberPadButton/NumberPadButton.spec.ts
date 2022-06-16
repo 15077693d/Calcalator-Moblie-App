@@ -1,16 +1,6 @@
 import { NumberPadButtonId, NUMBER_PAD_BUTTONS } from ".";
 
 describe("NumberPadButton process", () => {
-  describe("Reset Button", () => {
-    it("return 0", () => {
-      expect(NUMBER_PAD_BUTTONS[NumberPadButtonId.Reset].process("0")).toEqual(
-        "0"
-      );
-      expect(
-        NUMBER_PAD_BUTTONS[NumberPadButtonId.Reset].process("100")
-      ).toEqual("0");
-    });
-  });
   describe("Delete Button", () => {
     /**
      *
@@ -20,14 +10,19 @@ describe("NumberPadButton process", () => {
      * 2. previous value != "0" etc. "22."
      * -> "22"
      */
+    it('process return "0" if previous value = "-"', () => {
+      expect(NUMBER_PAD_BUTTONS[NumberPadButtonId.Zero].process("-")).toEqual(
+        "0"
+      );
+    });
     it('process return "0" if previous value = "7"', () => {
       expect(NUMBER_PAD_BUTTONS[NumberPadButtonId.Delete].process("7")).toEqual(
-        "0"
+        null
       );
     });
     it('process return "0" if previous value = "0"', () => {
       expect(NUMBER_PAD_BUTTONS[NumberPadButtonId.Delete].process("0")).toEqual(
-        "0"
+        null
       );
     });
     it('process return "22" if previous value = "22."', () => {
